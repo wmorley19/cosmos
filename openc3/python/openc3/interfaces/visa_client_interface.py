@@ -1,16 +1,15 @@
-from openc3.interfaces.stream_interface import StreamInterface
-import pyvisa
-from openc3.config.config_parser import ConfigParser
-from openc3.utilities.logger import Logger
 
+import pyvisa
 
 # Class for interfaces that act as VISA clients
+
+
 class VisaClientInterface(StreamInterface):
     def __init__(
         self,
         resource_name,  # VISA resource name (TCPIP0::192.168.0.100::INSTR)
-        write_timeout,  
-        read_timeout,   
+        write_timeout,
+        read_timeout,
     ):
         super().__init__()
         self.resource_name = resource_name
@@ -31,7 +30,8 @@ class VisaClientInterface(StreamInterface):
             self.connected = True
             Logger.info(f'Connected to VISA interface: {self.resource_name}')
         except pyvisa.VisaIOError as e:
-            Logger.error(f'Error connecting to VISA interface: {self.resource_name}')
+            Logger.error(
+                f'Error connecting to VISA interface: {self.resource_name}')
             raise e
 
     def disconnect(self):
@@ -39,8 +39,9 @@ class VisaClientInterface(StreamInterface):
         if self.connected:
             self.instrument.close()
             self.connected = False
-            Logger.info(f'Disconnected from VISA interface: {self.resource_name}')
-    
+            Logger.info(
+                f'Disconnected from VISA interface: {self.resource_name}')
+
     def write(self, data):
         """Write data to the VISA instrument."""
         if not self.connected:
@@ -57,7 +58,7 @@ class VisaClientInterface(StreamInterface):
         """Read data from the VISA instrument."""
         if not self.connected:
             raise RuntimeError("Not connected to any VISA instrument.")
-        
+
         try:
             data = self.instrument.read()
             Logger.info(f'Read data from VISA instrument: {data}')

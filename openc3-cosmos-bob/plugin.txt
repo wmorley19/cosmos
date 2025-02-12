@@ -1,0 +1,7 @@
+# Set VARIABLEs here to allow variation in your plugin
+
+VARIABLE bob_target_name BOB
+
+TARGET BOB <%= bob_target_name %>
+INTERFACE <%= bob_target_name %>_INT openc3/interfaces/tcpip_client_interface.py host.docker.internal 5025 5025 10.0 None BURST
+  MAP_TARGET <%= bob_target_name %>
