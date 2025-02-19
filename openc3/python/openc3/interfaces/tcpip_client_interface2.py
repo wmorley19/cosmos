@@ -20,7 +20,7 @@ from openc3.config.config_parser import ConfigParser
 
 
 # Base class for interfaces that act as a TCP/IP client
-class TcpipClientInterface(StreamInterface):
+class TcpipClientInterface2(StreamInterface):
     # self.param hostname [String] Machine to connect to
     # self.param write_port [Integer] Port to write commands to
     # self.param read_port [Integer] Port to read telemetry from

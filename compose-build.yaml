@@ -22,16 +22,16 @@
 
 services:
   openc3-ruby:
-    build:
-      context: "openc3-ruby"
-      network: host
-      args:
-        ALPINE_VERSION: ${ALPINE_VERSION}
-        ALPINE_BUILD: ${ALPINE_BUILD}
-        APK_URL: ${APK_URL}
-        RUBYGEMS_URL: ${RUBYGEMS_URL}
-        PYPI_URL: ${PYPI_URL}
-        OPENC3_DEPENDENCY_REGISTRY: ${OPENC3_DEPENDENCY_REGISTRY}
+    #build:
+    #  context: "openc3-ruby"
+    #  network: host
+    #  args:
+    #    ALPINE_VERSION: ${ALPINE_VERSION}
+    #    ALPINE_BUILD: ${ALPINE_BUILD}
+    #    APK_URL: ${APK_URL}
+    #    RUBYGEMS_URL: ${RUBYGEMS_URL}
+    #    PYPI_URL: ${PYPI_URL}
+    #    OPENC3_DEPENDENCY_REGISTRY: ${OPENC3_DEPENDENCY_REGISTRY}
     image: "${OPENC3_REGISTRY}/${OPENC3_NAMESPACE}/openc3-ruby:${OPENC3_TAG}"
 
   openc3-base:

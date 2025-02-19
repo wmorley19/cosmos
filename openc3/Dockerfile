@@ -38,8 +38,8 @@ RUN . /openc3/venv/bin/activate \
 
 WORKDIR /openc3/
 
-RUN mkdir /gems && chown openc3:openc3 /gems
-RUN mkdir /plugins && chown openc3:openc3 /plugins
+RUN mkdir -p /gems && chown openc3:openc3 /gems
+RUN mkdir -p /plugins && chown openc3:openc3 /plugins
 RUN ["chmod", "-R", "777", "/gems/"]
 RUN ["chmod", "-R", "777", "/plugins/"]
 RUN ["chmod", "-R", "777", "/openc3/"]
